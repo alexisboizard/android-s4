@@ -5,217 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="UP"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+    <TextView
+        android:id="@+id/tv_contact_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:fontFamily="@font/oswald"
+        android:textSize="30sp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_contact_counter"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-            <ImageView
-                android:id="@+id/avatar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/avatar_image" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_new_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="#ae0001"
+        android:text="New"
+        android:fontFamily="@font/oswald"
+        app:cornerRadius="10dp"
+        />
 
-            <RadioGroup
-                android:id="@+id/radio_group_sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/avatar">
-
-                <RadioButton
-                    android:id="@+id/radio_button_male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="M" />
-
-                <RadioButton
-                    android:id="@+id/radio_button_female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="F" />
-
-                <RadioButton
-                    android:id="@+id/radio_button_other"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Autres" />
-            </RadioGroup>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_firstname"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/radio_group_sex">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ti_firstname_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Votre prénom" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_name"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_firstname">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ti_name_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Votre nom" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_birthday"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                android:inputType="date"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_name">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ti_birthday_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Date de naissance" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_tel"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                android:inputType="phone"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_birthday">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ti_tel_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Votre numéro de téléphone" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_mail"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                android:inputType="phone"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_tel">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ti_mail_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Votre email" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_city"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="225dp"
-                android:inputType="textCapCharacters"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_mail">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ti_city_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Votre ville" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_zip"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="225dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                android:inputType="textCapCharacters"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_mail">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ti_zip_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="ZIP Code" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <Button
-                android:id="@+id/submit_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="32dp"
-                android:text="Valider"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_zip" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
